@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SettingsSpecific extends Activity implements
 		OnClickListener, OnItemClickListener {
@@ -71,7 +72,7 @@ public class SettingsSpecific extends Activity implements
 			  int width = lp.width;
 			  lp.width = width*2;
 			  lv.setLayoutParams(lp);
-			  lv.setOnItemClickListener(null);
+			 // lv.setOnItemClickListener(null);
 			}
 		}
 	}
@@ -278,12 +279,13 @@ public class SettingsSpecific extends Activity implements
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
 		if (posOfTitle == 2 || posOfTitle == 5) {
-			System.out.println("Im in!");
 			Intent i3nd = new Intent(this, LastLayer.class);
 			i3nd.putExtra("whichCase", posInTitle);
 			i3nd.putExtra("whichOneInPos", pos);
 			i3nd.putExtra("posOfTitle", posOfTitle);
 			startActivityForResult(i3nd, -1);
+		} else if (posOfTitle == 6) {
+			Toast.makeText(getApplicationContext(), "Lied wird gespielt", Toast.LENGTH_SHORT).show();
 		}
 	}
 
