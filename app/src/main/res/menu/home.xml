@@ -7,18 +7,24 @@
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/shuffle_settings"
+        android:title="shuffle"
+        android:icon="@drawable/media_shuffle"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/radio"
         android:title="Radio"
         android:orderInCategory="100"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:icon="@drawable/radio"/>
     <item
         android:id="@+id/cd"
         android:title="CD"
         android:orderInCategory="100"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:icon="@drawable/cd"/>
 </menu>

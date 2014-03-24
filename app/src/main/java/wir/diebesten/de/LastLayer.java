@@ -3,9 +3,9 @@ package wir.diebesten.de;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +19,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class LastLayer extends ActionBarActivity{
+public class LastLayer extends Activity {
 
 	ListView lv;
 	ImageView iv;

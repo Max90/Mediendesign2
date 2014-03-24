@@ -1,8 +1,8 @@
 package wir.diebesten.de;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Settings extends ActionBarActivity implements OnClickListener, AdapterView.OnItemClickListener {
+public class Settings extends Activity implements OnClickListener, AdapterView.OnItemClickListener {
 
 	ListView lv;
 	TextView header;

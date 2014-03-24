@@ -32,7 +32,7 @@ public class ListViewArrays {
 	
 	String[] albumLesSouvenirs= new String[] {"Comment C'était Déjà","Chez moi","Yes we did","De ma fenêtre","Ne partez pas","Comme um mardin","Hannah","Ma corde au clou","Jai 18 ans","Quitte-moi","Le mal de l'aube","Les souvenirs sous ma frange","Qui peut dire"};
 	String[] albumSongs= new String[] {"From Grace","A love story","Cecilia","All's not lost","That great october sound","Don't lose yourself", "Pale green eyes","B A Part","One day you'll dance for me, new york city","Dice","It's always been you","Something real","Rain down on me","Songs"};
-	String[] albumSoundcloud= new String []{"Frei","Sie ist sch�n","Sailor & I - Tough Love (Jonas Mantey Triebkraft | Remix)", "Wie alles begann"};
+	String[] albumSoundcloud= new String []{"Frei","Sie ist schön","Sailor & I - Tough Love (Jonas Mantey Triebkraft | Remix)", "Wie alles begann"};
 	String[] albumInAPerfectWorld= new String[] {"One day","All I want","Love like this","High hopes","Brand new day","After the fall","Big bad world","All comes down","Talk","Pray","Way back when"};
 	String[] albumBlackTraffic= new String[] {"I will break you","Sad sad sad","Spit you out (featuring Shaka Ponk)","Hope you get to meet your hero","I believed in you","Satisfied?","Our summer kills the sun","Drowning","This is not a game","Sticky fingers in your honey","Diving down"};
 	String[] albumAmosLee= new String []{"Keep it loose, keep it tight","Seen it all before","Arms of a woman","Give it up","Dreamin'","Soul suckers","Colors","Bottom of the barrel","Black river","Lies of a lonely friend","All my friends"};

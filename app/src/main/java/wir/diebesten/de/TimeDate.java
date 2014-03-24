@@ -1,10 +1,10 @@
 package wir.diebesten.de;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class TimeDate extends ActionBarActivity implements
+public class TimeDate extends Activity implements
 		OnSeekBarChangeListener, OnDateChangedListener, OnClickListener {
 
 	SeekBar sb;

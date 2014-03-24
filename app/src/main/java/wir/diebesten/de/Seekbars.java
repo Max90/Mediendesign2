@@ -29,7 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class Seekbars extends ActionBarActivity implements
+public class Seekbars extends Activity implements
 		OnSeekBarChangeListener {
 
 	SeekBar sLoud, sHigh, sBass, sEqualizer;
@@ -121,7 +121,7 @@ public class Seekbars extends ActionBarActivity implements
 		case 6:
 			profileValues = lva.entspannung;
 			break;
-		// Hinzufügen
+		// Hinzufï¿½gen
 		case 7:
 			profileValues = lva.hinzu;
 			break;
@@ -153,12 +153,12 @@ public class Seekbars extends ActionBarActivity implements
 		}
 		if (seekBar.getId() == R.id.seekbarLaut) {
 			Toast.makeText(getApplicationContext(),
-					"neue Lautstärke: " + progress, Toast.LENGTH_LONG).show();
+					"neue Lautstï¿½rke: " + progress, Toast.LENGTH_LONG).show();
 			profileValues[0] = progress;
 		}
 		if (seekBar.getId() == R.id.seekbarHigh) {
 			Toast.makeText(getApplicationContext(),
-					"Höhen eingestellt: " + progress, Toast.LENGTH_LONG).show();
+					"Hï¿½hen eingestellt: " + progress, Toast.LENGTH_LONG).show();
 			profileValues[3] = progress;
 		}
 		if (seekBar.getId() == R.id.seekbarEqualizer) {

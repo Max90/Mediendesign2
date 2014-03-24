@@ -1,8 +1,10 @@
 package wir.diebesten.de;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -19,12 +21,15 @@ public class HomeActivity extends ActionBarActivity {
 
     public static boolean radioOn = false;
     static Context context;
+    private Menu optionsMenu;
+    private Boolean playState = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        if (savedInstanceState == null) {
+       if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment()).commit();
         }
@@ -37,7 +42,6 @@ public class HomeActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
@@ -59,7 +63,23 @@ public class HomeActivity extends ActionBarActivity {
         if(id == R.id.cd){
             radioOn = false;
         }
+        if(id == R.id.shuffle_settings){
+            invalidateOptionsMenu();
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        //System.out.println("indtsdf " + menu.findItem(R.id.shuffle_settings).getItemId());
+        if  (!playState) {
+            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.loop);
+            playState = true;
+        }else {
+            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.media_shuffle);
+            playState = false;
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     /**

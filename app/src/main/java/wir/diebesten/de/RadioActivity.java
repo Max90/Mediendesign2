@@ -3,6 +3,7 @@ package wir.diebesten.de;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -21,7 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RadioActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+public class RadioActivity extends Activity implements AdapterView.OnItemClickListener {
 
     ListView lv;
     ImageView iv;
