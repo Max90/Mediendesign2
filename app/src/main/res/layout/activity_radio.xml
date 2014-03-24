@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blueBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="173dp" >
+
+        <RelativeLayout
+            android:id="@+id/settings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/settings_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/settings_header_string"
+                android:textSize="25sp" />
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/settings_header"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="30dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:background="#000"
+                android:layout_alignTop="@id/listView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/settings_header"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:padding="5px"
+                android:layout_toRightOf="@id/listView"
+                android:src="@drawable/arrow_left" >
+            </ImageButton>
+        </RelativeLayout>
+    </ScrollView>
+
+</HorizontalScrollView>

@@ -1,0 +1,164 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueBackground" >
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="100dp" >
+
+            <RelativeLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".HomeActivity"
+                tools:ignore="MergeRootFrame" >
+
+                <ImageButton
+                    android:id="@+id/profileButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/listen"
+                    android:text="@string/profile_button_string"
+                    android:visibility="visible"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Profil"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/profileButton"
+                    android:layout_alignLeft="@+id/profileButton"
+                    android:layout_alignRight="@+id/profileButton"/>
+
+                <ImageButton
+                    android:id="@+id/playButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_toRightOf="@+id/profileButton"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/play"
+                    android:text="@string/wiedergabe_button_string"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wiedergabe"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/profileButton"
+                    android:layout_alignLeft="@+id/playButton"
+                    android:layout_alignRight="@+id/playButton"/>
+
+                <ImageButton
+                    android:id="@+id/settingButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:scaleType="fitXY"
+                    android:layout_toRightOf="@+id/playButton"
+                    android:clickable="true"
+                    android:src="@drawable/settings"
+                    android:text="@string/einstellungen_button_string"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Eisntellungen"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/profileButton"
+                    android:layout_alignLeft="@+id/settingButton"
+                    android:layout_alignRight="@+id/settingButton"/>
+
+                <ImageButton
+                    android:id="@+id/soundButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_toRightOf="@+id/settingButton"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/notes"
+                    android:text="@string/sound_button_string"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sound"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/profileButton"
+                    android:layout_alignLeft="@+id/soundButton"
+                    android:layout_alignRight="@+id/soundButton"/>
+
+                <ImageButton
+                    android:id="@+id/friendButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/profileButton"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="100dp"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/friends"
+                    android:text="@string/freunde_button_string"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Freunde"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/friendButton"
+                    android:layout_alignLeft="@+id/friendButton"
+                    android:layout_alignRight="@+id/friendButton"/>
+
+                <ImageButton
+                    android:id="@+id/deviceButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/playButton"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_toRightOf="@+id/friendButton"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/devices"
+                    android:text="@string/geraete_button_string"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/shazamButton"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/playButton"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_toRightOf="@+id/deviceButton"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shazam"
+                    android:text="@string/shazam_button_string"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</ScrollView>

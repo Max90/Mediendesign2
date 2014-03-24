@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blueBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+      
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="173dp" >
+
+        <RelativeLayout
+            android:id="@+id/timeDate"
+              android:background="@color/blueBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/settings_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/settings_header_string"
+                android:textSize="25sp" />
+
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/settings_header" />
+
+            <TextView
+                android:id="@+id/textviewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/datePicker"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/textviewDate"
+                android:textSize="18sp" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textviewDate" />
+
+            <TextView
+                android:id="@+id/textviewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timePicker"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/textviewTime"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textviewTime"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="35dp"
+                android:entries="@array/language_array"
+                android:max="100"
+                android:minWidth="500dp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textviewLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/languageSpinner"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/textviewLanguage"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/seekbarBrightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textviewLanguage"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:max="100"
+                android:minWidth="500dp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textviewBrightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekbarBrightness"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/textviewBrightness"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonWLAN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textviewBrightness"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="35dp"
+                android:max="100"
+                android:minWidth="500dp"
+                android:text="@string/WLANconnecting"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textviewWLAN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonWLAN"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/WLAN"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</HorizontalScrollView>
+

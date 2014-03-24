@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <!--  http://colorschemedesigner.com/#3r11TfC..w0w0 -->
+    <color name="blueBackground">#9cb7d5</color>
+	<color name="blueLighter">#d9e3ef</color>   
+	<color name="blueSemi">#658abf</color>
+	<color name="blueGrey">#8599b2</color>
+	<color name="blueDark">#3d74aa</color>
+</resources>
