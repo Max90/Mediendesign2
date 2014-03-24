@@ -134,6 +134,8 @@ public class SettingsSpecific extends Activity implements
 			switch (posInTitle) {
 			case 0:
 				populateA = lvArray.playTitle;
+				ib.setImageResource(R.drawable.artistokkid);
+				ib.setScaleType(ImageButton.ScaleType.FIT_XY);
 				name = lvArray.play[0];
 				break;
 			case 1:
