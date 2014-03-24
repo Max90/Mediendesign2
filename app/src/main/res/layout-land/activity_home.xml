@@ -84,6 +84,8 @@
                     android:textSize="20sp"
                     android:layout_below="@+id/profileButton"
                     android:layout_alignLeft="@+id/settingButton"
+                    android:layout_marginLeft="-15px"
+                    android:layout_marginRight="-15px"
                     android:layout_alignRight="@+id/settingButton"/>
 
                 <ImageButton
@@ -143,6 +145,15 @@
                     android:src="@drawable/devices"
                     android:text="@string/geraete_button_string"
                     android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Geräte"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/friendButton"
+                    android:layout_alignLeft="@+id/deviceButton"
+                    android:layout_alignRight="@+id/deviceButton"/>
 
                 <ImageButton
                     android:id="@+id/shazamButton"
@@ -157,6 +168,15 @@
                     android:src="@drawable/shazam"
                     android:text="@string/shazam_button_string"
                     android:visibility="visible" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shazam"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/friendButton"
+                    android:layout_alignLeft="@+id/shazamButton"
+                    android:layout_alignRight="@+id/shazamButton"/>
             </RelativeLayout>
         </LinearLayout>
     </HorizontalScrollView>
