@@ -57,13 +57,12 @@ public class HomeActivity extends ActionBarActivity {
             return true;
         }
         if(id == R.id.radio){
-            radioOn = true;
+            radioOn = !radioOn;
             context = this;
-        }
-        if(id == R.id.cd){
-            radioOn = false;
+            invalidateOptionsMenu();
         }
         if(id == R.id.shuffle_settings){
+            playState = !playState;
             invalidateOptionsMenu();
         }
         return super.onOptionsItemSelected(item);
@@ -73,11 +72,17 @@ public class HomeActivity extends ActionBarActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         //System.out.println("indtsdf " + menu.findItem(R.id.shuffle_settings).getItemId());
         if  (!playState) {
-            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.loop);
-            playState = true;
-        }else {
-            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.media_shuffle);
-            playState = false;
+            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.repeat_256);
+        }
+        if(playState) {
+            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.shuffle_256);
+        }
+
+        if(!radioOn){
+            menu.findItem(R.id.radio).setIcon(R.drawable.cd_256);
+        }
+        if (radioOn) {
+            menu.findItem(R.id.radio).setIcon(R.drawable.radio_256);
         }
         return super.onPrepareOptionsMenu(menu);
     }

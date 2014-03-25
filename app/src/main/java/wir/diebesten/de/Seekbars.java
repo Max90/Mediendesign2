@@ -153,12 +153,12 @@ public class Seekbars extends Activity implements
 		}
 		if (seekBar.getId() == R.id.seekbarLaut) {
 			Toast.makeText(getApplicationContext(),
-					"neue Lautst�rke: " + progress, Toast.LENGTH_LONG).show();
+					"neue Lautstärke: " + progress, Toast.LENGTH_LONG).show();
 			profileValues[0] = progress;
 		}
 		if (seekBar.getId() == R.id.seekbarHigh) {
 			Toast.makeText(getApplicationContext(),
-					"H�hen eingestellt: " + progress, Toast.LENGTH_LONG).show();
+					"Höhen eingestellt: " + progress, Toast.LENGTH_LONG).show();
 			profileValues[3] = progress;
 		}
 		if (seekBar.getId() == R.id.seekbarEqualizer) {

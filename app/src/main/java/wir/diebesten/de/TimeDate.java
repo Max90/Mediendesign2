@@ -55,6 +55,8 @@ public class TimeDate extends Activity implements
 		date = (TextView)findViewById(R.id.textviewDate);
 		dp = (DatePicker)findViewById(R.id.datePicker);
 		tp = (TimePicker)findViewById(R.id.timePicker);
+        dp.setDescendantFocusability(DatePicker.FOCUS_BLOCK_DESCENDANTS);
+        tp.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);
 		 Calendar c = Calendar.getInstance();
 		year = c.get(Calendar.YEAR);
 		month = c.get(Calendar.MONTH);

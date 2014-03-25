@@ -2,6 +2,7 @@ package wir.diebesten.de;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -144,7 +145,7 @@ public class Settings extends Activity implements OnClickListener, AdapterView.O
 		case 7:
 			lv.setVisibility(View.GONE);
 			ib.setImageDrawable(getResources().getDrawable(R.drawable.shazam));
-			ib.setScaleType(ImageButton.ScaleType.FIT_XY);
+            ib.setBackgroundColor(Color.TRANSPARENT);
 			name = "Shazam";
 			return populateA;
 		default:

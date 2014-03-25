@@ -48,7 +48,7 @@ public class SettingsSpecific extends Activity implements
 		setContentView(R.layout.settings);
 		lv = (ListView) findViewById(R.id.listView);
 		ib = (ImageButton) findViewById(R.id.imageButton);
-		ib.setBackgroundColor(Color.TRANSPARENT);
+		ib.setBackgroundColor(Color.BLACK);
 		of = getIntentContent()[0];
 		in = getIntentContent()[1];
 		header = (TextView)findViewById(R.id.settings_header);
