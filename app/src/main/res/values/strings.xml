@@ -23,15 +23,15 @@
     <string name="textviewTime">Zeit einstellen</string>
     <string name="textviewDate">Datum einstellen</string>
     <string name="dialogHeader">Verbindung wählen</string>
-
+    <string name="test">Album Cover Artist Title</string>
     <string-array name="language_array">
-        <item>Deutsch</item>
-        <item>English</item>
-        <item>Français</item>
+        <item>deutch</item>
+        <item>english</item>
+        <item>français</item>
         <item>Italiano</item>
-        <item>Español</item>
-        <item>Polski</item>
-        <item>Português</item>
+        <item>español</item>
+        <item>polski</item>
+        <item>português</item>
         <item>ру́сский</item>
         <item>汉语 [漢語]</item>
     </string-array>
