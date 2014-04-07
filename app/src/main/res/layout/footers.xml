@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_gravity="bottom"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tickertext"
+        android:text="@string/test"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/blueGrey"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:singleLine="true"
+         />
+</LinearLayout>
