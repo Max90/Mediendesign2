@@ -25,24 +25,28 @@ import java.util.Arrays;
 public class Settings extends Activity implements OnClickListener, AdapterView.OnItemClickListener {
 
 	ListView lv;
-	TextView header;
+	TextView header, tickertext;
 	ImageView iv;
 	ImageButton ib;
 	ArrayAdapter<String> listAdapter;
 	int switcher; Intent i; Bundle extras;
 	String[] populateA;
+	Intent end;
+	ListViewArrays as = new ListViewArrays();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.settings);
 		header = (TextView) findViewById(R.id.settings_header);
+		tickertext = (TextView) findViewById(R.id.tickertext);
 		lv = (ListView) findViewById(R.id.listView);
 		ib = (ImageButton) findViewById(R.id.imageButton);
 		//set ib depending on eachitem of getCase()-listview
 		if (getSwitcher()==7){
 		ib.setOnClickListener(this);}
 		handleListViewPopulation();
+		tickertext.setText(as.currentTicker[0]);
 	}
 
 	private void handleListViewPopulation() {
@@ -63,6 +67,12 @@ public class Settings extends Activity implements OnClickListener, AdapterView.O
 		extras = i.getExtras();
 		switcher = extras.getInt("stringB");
 		return switcher;
+	}
+	
+	@Override
+	public void onPause() {
+		finish();
+		super.onPause();
 	}
 
 	/****
@@ -175,7 +185,13 @@ public class Settings extends Activity implements OnClickListener, AdapterView.O
 	}
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent returner) {
-		System.out.println("im finish");
+		Bundle b = returner.getExtras();
+		String ticker = b.getString("tickertext");
+		tickertext.setText(ticker);
+		//lvArray.currentTicker[0]=ticker;
+		end = new Intent(this, HomeActivity.class);
+		end.putExtra("tickertext", ticker);
+		setResult(-1, end);
 		finish();
 	 }
 	

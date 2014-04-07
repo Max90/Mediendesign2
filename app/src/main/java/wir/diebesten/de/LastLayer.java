@@ -28,9 +28,9 @@ public class LastLayer extends ActionBarActivity implements OnItemClickListener 
 	ListView lv;
 	ImageView iv;
 	ImageButton ib;
-	TextView header;
+	TextView header, tickertext;
 	ArrayAdapter<String> listAdapter;
-	String title;
+	String title, name;
 	Intent i2nd;
 	Bundle extras;
 	int posOfTitle, posInTitle;
@@ -39,18 +39,22 @@ public class LastLayer extends ActionBarActivity implements OnItemClickListener 
 	ArrayList<String> objectList;
 	int switcher;
 	Intent i, end;
+	String interpret, genre, album, titel, ticker;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.settings);
+		
 		lv = (ListView) findViewById(R.id.listView);
 		ib = (ImageButton) findViewById(R.id.imageButton);
 		header = (TextView) findViewById(R.id.settings_header);
 		end = new Intent(this, HomeActivity.class);
+		tickertext = (TextView)findViewById(R.id.tickertext);
 		lvArray = new ListViewArrays();
+		tickertext.setText(lvArray.currentTicker[0]);
 		lv.setOnItemClickListener(this);
-		setResult(-1, end);
 		handleListViewPopulation();
 	}
 
@@ -79,7 +83,6 @@ public class LastLayer extends ActionBarActivity implements OnItemClickListener 
 	}
 
 	private String[] getCase(int swicher) {
-		String name = null;
 		populateA = null;
 		posOfTitle = extras.getInt("posOfTitle");
 		if (posOfTitle == 2) {
@@ -254,7 +257,7 @@ public class LastLayer extends ActionBarActivity implements OnItemClickListener 
 				populateA = new String[] { "ERROR", "please restart" };
 				break;
 			}
-		} else if (posOfTitle == 5) {
+		} else if (posOfTitle == 5 || posOfTitle == 6) {
 			populateA = lvArray.playPlaylist;
 			switch (extras.getInt("whichOneInPos")) {
 			case 0:
@@ -339,7 +342,202 @@ public class LastLayer extends ActionBarActivity implements OnItemClickListener 
 			long id) {
 		Toast.makeText(getApplicationContext(), "Lied wird gespielt",
 				Toast.LENGTH_SHORT).show();
-
+		posOfTitle = extras.getInt("posOfTitle");
+		interpret = "Rose"; genre ="Pop"; album="De ma fenetre"; titel =" Les Souvenirs";
+		String ticker = "Interpret: "+interpret+" Titel: "+titel+
+				" Album: "+album+" Genre: "+genre;
+		tickertext.setText(ticker);
+		if (posOfTitle == 2) {
+			switch (switcher) {
+			// titel
+			case 0:
+				switch (extras.getInt("whichOneInPos")) {
+				case 0:
+					interpret = "Rose"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 1:
+					interpret = "Thomas Dybdahl"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 2:
+					interpret = "Mantey"; titel = populateA[position]; album = name; genre="Electro";
+					break;
+				case 3:
+					interpret = "Kodaline"; titel = populateA[position]; album = name; genre="Alternative";
+					break;
+				case 4:
+					interpret = "Skunk Anansie"; titel = populateA[position]; album = name; genre="Rock";
+					break;
+				case 5:
+					interpret = "Amos Lee"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 6:
+					interpret = "OK KID"; titel = populateA[position]; album = name; genre="Rap";
+					break;
+				case 7:
+					interpret = "Ellie Goulding"; titel = populateA[position]; album = name; genre="Pop";
+					break;
+				case 8:
+					interpret = "Brooke Candy"; titel = populateA[position]; album = name; genre="HipHop";
+					break;
+				default:
+					name = "Default";
+					populateA = new String[] { "error" };
+					break;
+				}
+				
+				// interpret
+			case 1:
+				switch (extras.getInt("whichOneInPos")) {
+				case 0:
+					interpret = "Rose"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 1:
+					interpret = "Thomas Dybdahl"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 2:
+					interpret = "Mantey"; titel = populateA[position]; album = name; genre="Electro";
+					break;
+				case 3:
+					interpret = "Kodaline"; titel = populateA[position]; album = name; genre="Alternative";
+					break;
+				case 4:
+					interpret = "Skunk Anansie"; titel = populateA[position]; album = name; genre="Rock";
+					break;
+				case 5:
+					interpret = "Amos Lee"; titel = populateA[position]; album = name; genre="Folk";
+					break;
+				case 6:
+					interpret = "OK KID"; titel = populateA[position]; album = name; genre="Rap";
+					break;
+				case 7:
+					interpret = "Ellie Goulding"; titel = populateA[position]; album = name; genre="Pop";
+					break;
+				case 8:
+					interpret = "Brooke Candy"; titel = populateA[position]; album = name; genre="HipHop";
+					break;
+				default:
+					name = "Default";
+					populateA = new String[] { "error" };
+					break;
+				}
+				break;
+			// album
+			case 2:
+				switch (extras.getInt("whichOneInPos")) {
+				case 0:
+					interpret = "Rose"; titel = populateA[position]; album = "Les Souvenirs sous ma frange"; genre="Pop";
+					break;
+				case 1:
+					interpret = "Thomas Dybdahl"; titel = populateA[position]; album = "Songs"; genre="Folk";
+					break;
+				case 2:
+					interpret = "Jonas Mantey"; titel = populateA[position]; album = "Soundcloud"; genre="Electro";
+					break;
+				case 3:
+					interpret = "Kodaline"; titel = populateA[position]; album = "In a perfect world"; genre="Alternative";
+					break;
+				case 4:
+					interpret = "Skunk Anansie"; titel = populateA[position]; album = "Black Traffic"; genre="Rock";
+					break;
+				case 5:
+					interpret = "Amos Lee"; titel = populateA[position]; album = "Amos Lee"; genre="Folk";
+					break;
+				case 6:
+					interpret = "OK KID"; titel = populateA[position]; album = "OK KID"; genre="Rap";
+					break;
+				case 7:
+					interpret = "Ellie Goulding"; titel = populateA[position]; album = "Youtube"; genre="Pop";
+					break;
+				case 8:
+					interpret = "Brooke Candy"; titel = populateA[position]; album = "Youtube"; genre="Rap";
+					break;
+				default:
+					populateA = new String[] { "error" };
+					break;
+				}
+				break;
+			// genre
+			case 3:
+				switch (extras.getInt("whichOneInPos")) {
+				case 0:
+					interpret = populateA[position]; titel = "On my knees"; album = "Songs"; genre="Pop";
+					break;
+				case 1:
+					interpret = populateA[position]; titel = "Arms of a woman"; album = "Amos Lee"; genre="Folk";
+					break;
+				case 2:
+					interpret = populateA[position]; titel = "Frei"; album = "Soundcloud"; genre="Electro";
+					break;
+				case 3:
+					interpret = populateA[position]; titel = "High Hopes"; album = "In a perfect world"; genre="Indie";
+					break;
+				case 4:
+					interpret = populateA[position]; titel = "Because of you"; album = "Skunk Anansie"; genre="Rock";
+					break;
+				case 5:
+					interpret = populateA[position]; titel = "One day you dance for me NYC"; album = "Songs"; genre="Folk/Soul";
+					break;
+				case 6:
+					interpret = populateA[position]; titel = "Kaffee warm"; album = "OK KID"; genre="Deutschrap";
+					break;
+				case 7:
+					interpret = populateA[position]; titel = "Everybody does"; album = "Youtube"; genre="Rap";
+					break;
+				default:
+					name = "default";
+					populateA = new String[] { "error" };
+					break;
+				}
+				break;
+			// playlist
+			case 4:
+				name = "akutelle Playlist";
+				switch (extras.getInt("whichOneInPos")) {
+				case 0:
+					interpret = "Jonas Mantey"; titel =  populateA[position]; album = "Soundcloub"; genre="Indie";
+					break;
+				case 1:
+					interpret = "Thomas Dybdahl"; titel =  populateA[position]; album = "Songs"; genre="Electro";
+					break;
+				case 2:
+					interpret = "Kodaline"; titel =  populateA[position]; album = "In a perfect world"; genre="Pop";
+					break;
+				case 3:
+					interpret = "Ellie Goulding"; titel =  populateA[position]; album = "Youtube"; genre="Rock";
+					break;
+				default:
+					name = "default";
+					break;
+				}
+				break;
+			default:
+				populateA = new String[] { "ERROR", "please restart" };
+				break;
+			}
+		} else if (posOfTitle == 5 || posOfTitle == 6) {
+			switch (extras.getInt("whichOneInPos")) {
+			case 0:
+				interpret = "Jonas Mantey"; titel =  populateA[position]; album = "Soundcloub"; genre="Indie";
+				break;
+			case 1:
+				interpret = "Thomas Dybdahl"; titel =  populateA[position]; album = "Songs"; genre="Electro";
+				break;
+			case 2:
+				interpret = "Kodaline"; titel =  populateA[position]; album = "In a perfect world"; genre="Pop";
+				break;
+			case 3:
+				interpret = "Ellie Goulding"; titel =  populateA[position]; album = "Youtube"; genre="Rock";
+				break;
+			default:
+				populateA = lvArray.playPlaylist;
+				break;
+			}
+		}
+		ticker = "  Interpret: "+interpret+" Titel: "+titel+
+				"  Album: "+album+"  Genre: "+genre+" ";
+		lvArray.currentTicker[0]=ticker;
+		end.putExtra("tickertext", ticker);
+		setResult(-1, end);
 	}
 
 }

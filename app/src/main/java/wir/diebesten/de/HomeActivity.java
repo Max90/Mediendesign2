@@ -1,10 +1,8 @@
 package wir.diebesten.de;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -15,7 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class HomeActivity extends ActionBarActivity {
 
@@ -23,7 +21,7 @@ public class HomeActivity extends ActionBarActivity {
     static Context context;
     private Menu optionsMenu;
     private Boolean playState = false;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +30,17 @@ public class HomeActivity extends ActionBarActivity {
        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment()).commit();
-        }
+        }ListViewArrays lvArray = new ListViewArrays();
+      TextView txtView = (TextView) findViewById(R.id.tickertext); txtView.setText(lvArray.currentTicker[0]);
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent returner) {
-        System.out.println("im finish");
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	  System.out.println("help!");
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        fragment.onActivityResult(requestCode, resultCode, data);
+      
     }
 
 
@@ -61,22 +65,22 @@ public class HomeActivity extends ActionBarActivity {
             context = this;
             invalidateOptionsMenu();
         }
-        if(id == R.id.shuffle_settings){
-            playState = !playState;
-            invalidateOptionsMenu();
-        }
+//        if(id == R.id.shuffle_settings){
+//            playState = !playState;
+//            invalidateOptionsMenu();
+//        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         //System.out.println("indtsdf " + menu.findItem(R.id.shuffle_settings).getItemId());
-        if  (!playState) {
-            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.repeat_256);
-        }
-        if(playState) {
-            menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.shuffle_256);
-        }
+//      if  (!playState) {
+//         menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.repeat_256);
+//    }
+//    if(playState) {
+//        menu.findItem(R.id.shuffle_settings).setIcon(R.drawable.shuffle_256);
+//        }
 
         if(!radioOn){
             menu.findItem(R.id.radio).setIcon(R.drawable.cd_256);
@@ -94,29 +98,43 @@ public class HomeActivity extends ActionBarActivity {
             OnClickListener {
 
         ImageButton profile, play, setting, sound, friend, device, shazam;
-
+  	  String interpret, titel, album, genre, tickertext;
+	    String ticker; TextView txtView;
+	    ListViewArrays lvArray = new ListViewArrays();
         public PlaceholderFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+        
             View rootView = inflater.inflate(R.layout.activity_home, container,
                     false);
-            System.out.println(getResources().getConfiguration().orientation);
             if(getResources().getConfiguration().orientation==2){
                 profile = (ImageButton) rootView.findViewById(R.id.profileButton);
                 play = (ImageButton) rootView.findViewById(R.id.playButton);
                 setting = (ImageButton) rootView.findViewById(R.id.settingButton);
                 sound = (ImageButton) rootView.findViewById(R.id.soundButton);
-                System.out.println(sound);
-                System.out.println(sound.getResources());
                 friend = (ImageButton) rootView.findViewById(R.id.friendButton);
                 device = (ImageButton) rootView.findViewById(R.id.deviceButton);
                 shazam = (ImageButton) rootView.findViewById(R.id.shazamButton);
-
+                txtView =(TextView) rootView.findViewById(R.id.tickertext);
+                txtView.setText(lvArray.currentTicker[0]);
+                txtView.setVisibility(View.GONE);
+                ticker = "  Interpret: "+interpret+" Titel: "+titel+
+        				"  Album: "+album+"  Genre: "+genre+" ";
+              
+                if(getActivity().getIntent().getExtras() != null){
+                ticker = getActivity().getIntent().getExtras().getString("tickertext");
+                } else {
+                	 ticker = "  Interpret: "+interpret+" Titel: "+titel+
+             				"  Album: "+album+"  Genre: "+genre+" ";
+                	 txtView.setText(ticker);
+                }
+                txtView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.coverellie, 0, 0, 0);
                 ImageButton[] buttonA = { profile, play, setting, sound, friend,
                         device, shazam };
+            	
                 for (int i = 0; i < buttonA.length; i++) {
                     buttonA[i].setOnClickListener(this);
                     buttonA[i].setBackgroundColor(Color.TRANSPARENT);
@@ -124,6 +142,32 @@ public class HomeActivity extends ActionBarActivity {
             }
 
             return rootView;
+        }
+        
+        @Override
+        public void onResume() {
+        	// TODO Auto-generated method stub
+        	super.onResume();
+        	System.out.println("ICH BIN HIER");
+        	if(getActivity().getIntent().getExtras() != null){
+        		if (getActivity().getIntent().getExtras().getString("tickertext") != null) {
+                ticker = getActivity().getIntent().getExtras().getString("tickertext");
+                System.out.println(ticker+"INTENT");
+                txtView.setText(ticker);
+                } System.out.println("ich null");}else {
+                	System.out.println("else");
+                	 ticker = "  Interpret: "+interpret+" Titel: "+titel+
+             				"  Album: "+album+"  Genre: "+genre+" ";
+                	 txtView.setText(ticker);
+                }
+        }
+        @Override
+		public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        	System.out.println("im finish");
+    		Bundle b = data.getExtras();
+    		String tickers = b.getString("tickertext");
+    		System.out.println(tickers + "WICHTIG");
+    		txtView.setText(tickers);
         }
 
         @Override
@@ -162,6 +206,7 @@ public class HomeActivity extends ActionBarActivity {
             }
             startActivity(i);
         }
+     
     }
 
 }

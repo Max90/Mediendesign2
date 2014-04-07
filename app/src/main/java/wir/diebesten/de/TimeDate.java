@@ -76,7 +76,7 @@ public class TimeDate extends Activity implements
 
 	@Override
 	public void onClick(View v) {
-		final Dialog dialog = new Dialog(context);
+		final Dialog dialog = new Dialog(this, R.style.cust_dialog);
         dialog.setTitle( "Verbindung wählen" );
 		dialog.setContentView(R.layout.dialog);
 		lv=(ListView)dialog.findViewById(R.id.listViewDialog);

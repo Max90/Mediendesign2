@@ -14,6 +14,8 @@ public class ListViewArrays {
     int[] sexyTime = new int[]{15, 20, 5, 25};
     int[] entspannung = new int[]{5, 30, 10, 10};
     int[] hinzu = new int[]{0, 0, 0, 0};
+    
+    String[] currentTicker = new String[] {"Interpret:Jonas Mantey   Titel:Frei   Album:Soundcloud   Genre:Indie   Interpret:Jonas Mantey   Titel:Frei   Album:Soundcloud   Genre:Indie", " interpret: titel: album: genre"};
 
 
     String[] play = new String[]{"Titel", "Interpret", "Album", "Genre", "Playlist"};

@@ -31,16 +31,17 @@ public class SettingsSpecific extends Activity implements
 	ListView lv;
 	ImageView iv;
 	ImageButton ib;
-	TextView header;
+	TextView header, txtView;
 	ArrayAdapter<String> listAdapter;
 	String title;
-	Intent i2nd;
+	Intent i2nd, end;
 	Bundle extras;
 	int posOfTitle, posInTitle;
 	ListViewArrays lvArray;
 	String[] populateA;
 	int of, in;
 	ArrayList<String> objectList;
+	String interpret, titel, album, genre, ticker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +49,13 @@ public class SettingsSpecific extends Activity implements
 		setContentView(R.layout.settings);
 		lv = (ListView) findViewById(R.id.listView);
 		ib = (ImageButton) findViewById(R.id.imageButton);
+		txtView = (TextView) findViewById(R.id.tickertext);
 		ib.setBackgroundColor(Color.BLACK);
 		of = getIntentContent()[0];
 		in = getIntentContent()[1];
 		header = (TextView)findViewById(R.id.settings_header);
 		handleListViewPopulation(of, in);
+		txtView.setText(lvArray.currentTicker[0]);
 	}
 
 	@SuppressLint("NewApi")
@@ -75,6 +78,11 @@ public class SettingsSpecific extends Activity implements
 			 // lv.setOnItemClickListener(null);
 			}
 		}
+	}
+	@Override
+	public void onPause() {
+		finish();
+		super.onPause();
 	}
 
 	/****
@@ -247,6 +255,7 @@ public class SettingsSpecific extends Activity implements
 			// hier playplaylist des jeweiligen Device 
 			// von settings im intent pos mitnehmen in liste und nach listenpos
 			// verschiedene playlists
+			
 			switch (posInTitle) {
 			case 0:
 				populateA = lvArray.playPlaylist;
@@ -264,8 +273,9 @@ public class SettingsSpecific extends Activity implements
 				populateA = lvArray.playPlaylist;
 				name = lvArray.devices[3];
 				break;
+		
 		default:
-			populateA = new String[] { "ERROR", "please restart" };
+			populateA = lvArray.playPlaylist;
 			break;
 		}
 			header.setText(name);
@@ -280,6 +290,7 @@ public class SettingsSpecific extends Activity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+
 		if (posOfTitle == 2 || posOfTitle == 5) {
 			Intent i3nd = new Intent(this, LastLayer.class);
 			i3nd.putExtra("whichCase", posInTitle);
@@ -288,13 +299,54 @@ public class SettingsSpecific extends Activity implements
 			startActivityForResult(i3nd, -1);
 		} else if (posOfTitle == 6) {
 			Toast.makeText(getApplicationContext(), "Lied wird gespielt", Toast.LENGTH_SHORT).show();
+			switch (pos) {
+			case 0:
+				interpret = "Rose"; titel =  "Yes we did"; album = "Les souvenirs"; genre="Pop";
+				break;
+			case 1:
+				interpret = "Thomas Dybdahl"; titel =  "One day you dance for me NYC"; album = "Songs"; genre="Folk";
+				break;
+			case 2:
+				interpret = "Jonas Mantey"; titel =  "frei"; album = "Soundcloud"; genre="Electro";
+				break;
+			case 3:
+				interpret = "Kodaline"; titel = "High Hopes"; album = "In a perfect world"; genre="Pop";
+				break;
+			case 4:
+				interpret = "Skunk Anansie"; titel = "I believed in you"; album = "Youtube"; genre="Rock";
+				break;
+			case 5:
+				interpret = "Amos Lee"; titel = "Arms of a woman"; album = "Amos Lee"; genre="Folk";
+				break;
+			case 6:
+				interpret = "OK KID"; titel = "Kaffee warm"; album = "OK KID"; genre="Deutschrap";
+				break;
+			case 7:
+				interpret = "Ellie Goulding"; titel = "On my knees"; album = "Youtube"; genre="Pop";
+				break;
+		default:
+			populateA = lvArray.playPlaylist;
+			break;
+		}ticker = "  Interpret: "+interpret+" Titel: "+titel+
+				"  Album: "+album+"  Genre: "+genre+" ";
+		txtView.setText(ticker);
+		lvArray.currentTicker[0]=ticker;
+		end = new Intent(this, Settings.class);
+		end.putExtra("tickertext", ticker);
+		setResult(-1, end);
+			}
 		}
-	}
+	
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent returner) {
-		System.out.println("im finish");
+		Bundle b = returner.getExtras();
+		String ticker = b.getString("tickertext");
+		txtView.setText(ticker);
+		lvArray.currentTicker[0]=ticker;
 		finish();
 	 }
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
